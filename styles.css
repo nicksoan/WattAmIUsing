@@ -335,6 +335,7 @@ input[type="time"], input[type="date"] {
 .segmented input:checked + span { background: var(--ink); color: var(--paper); }
 
 .toggle-option {
+  display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 10px;
