@@ -1,17 +1,17 @@
 ---
-name: Loadprint
-description: A household electricity timetable for private, pattern-first analysis.
+name: WattAmIUsing
+description: A playful household electricity dashboard for private, pattern-first analysis.
 colors:
-  utility-ink: "#132218"
-  worksheet-paper: "#f4f7e9"
-  worksheet-depth: "#e8edd7"
-  signal-lime: "#c8f135"
-  signal-lime-dark: "#7ba20b"
-  measured-mint: "#9fc8aa"
-  rule: "#aeb9a3"
-  muted-ink: "#526056"
-  clean-paper: "#fbfcf7"
-  error: "#a12f2f"
+  utility-ink: "#160526"
+  worksheet-paper: "#fbf6ff"
+  worksheet-depth: "#efe4ff"
+  signal-lime: "#ff5bd6"
+  signal-lime-dark: "#8f39ff"
+  measured-mint: "#82ecff"
+  rule: "#c9b6ea"
+  muted-ink: "#5f4b7f"
+  clean-paper: "#fffaff"
+  error: "#c43472"
 typography:
   display:
     fontFamily: "Aptos Narrow, Bahnschrift Condensed, Franklin Gothic Medium, sans-serif"
@@ -55,26 +55,26 @@ components:
     height: "42px"
 ---
 
-# Design System: Loadprint
+# Design System: WattAmIUsing
 
 ## Overview
 
-**Creative North Star: "The Household Load Worksheet"**
+**Creative North Star: "The Playful Power Worksheet"**
 
-Loadprint treats energy data like a marked-up utility timetable: compressed, precise, tactile, and immediately useful. Dense evidence sits on pale worksheet surfaces while deep utility ink establishes hierarchy. Signal lime marks queried periods and active decisions rather than decorating neutral space.
+WattAmIUsing treats energy data like a marked-up utility timetable with a midnight palette: lively, tactile, and immediately useful. Dense evidence sits on bright lavender worksheet surfaces while deep utility ink establishes hierarchy. Electric pink marks queried periods and active decisions, with aqua carrying supporting data so the interface feels energetic without losing clarity.
 
-The system feels operational rather than financial. Charts, ruled separations, square fields, and measured labels create confidence without imitating a generic business analytics product.
+The system feels energetic rather than corporate. Charts, ruled separations, square fields, and measured labels create confidence without sliding back into a generic business analytics product.
 
 **Key Characteristics:**
 - Squared utility controls and hard rules
 - Condensed, uppercase display hierarchy
-- Signal lime reserved for active windows and primary action
+- Electric pink reserved for active windows and primary action
 - Dense charts balanced by plain, readable working surfaces
 - Flat composition with structural depth only
 
 ## Colors
 
-Restrained neutral fields carry most of each screen; signal lime identifies selection and action.
+Bright worksheet fields carry most of each screen; electric pink identifies selection and action.
 
 ### Primary
 - **Signal Lime:** Active query ranges, selected data, and primary controls.
@@ -91,7 +91,7 @@ Restrained neutral fields carry most of each screen; signal lime identifies sele
 - **Muted Ink:** Supporting copy and axis labels.
 - **Clean Paper:** Inputs and findings surfaces.
 
-**The Signal Means Selection Rule.** Lime indicates an active time window, selected state, or primary action; it does not decorate passive containers.
+**The Signal Means Selection Rule.** Pink indicates an active time window, selected state, or primary action; it does not decorate passive containers.
 
 ## Typography
 
@@ -117,7 +117,7 @@ Section padding scales from 22px to 52px. Tight control groups use 7–12px gaps
 
 ## Elevation & Depth
 
-System stays flat by default. Borders and tonal fields establish most depth. Offset shadow (`8px 10px 26px rgba(19, 34, 24, 0.12)`) appears only for temporary notices and an actively dragged file target.
+System stays flat by default. Borders and tonal fields establish most depth. Offset shadow (`8px 10px 26px rgba(22, 5, 38, 0.16)`) appears only for temporary notices and an actively dragged file target.
 
 **The Flat Worksheet Rule.** Permanent analysis surfaces do not float.
 

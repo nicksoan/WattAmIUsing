@@ -1,26 +1,26 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-09-23T09:18:05.871+01:00",
-  "title": "Design System: Loadprint",
+  "title": "Design System: WattAmIUsing",
   "extensions": {
     "colorMeta": {
       "utility-ink": {
         "role": "neutral",
         "displayName": "Utility Ink",
-        "canonical": "#132218",
-        "tonalRamp": ["#132218", "#26372b", "#405244", "#5f7263", "#849688", "#abb9ad", "#d2dbd3", "#f4f7f4"]
+        "canonical": "#160526",
+        "tonalRamp": ["#160526", "#2b1939", "#453052", "#624d70", "#857393", "#aea0ba", "#d8d0e3", "#fbf8fd"]
       },
       "signal-lime": {
         "role": "primary",
         "displayName": "Signal Lime",
-        "canonical": "#c8f135",
-        "tonalRamp": ["#273402", "#455a04", "#668207", "#89ab0e", "#aad41e", "#c8f135", "#dcf67b", "#f0fbc2"]
+        "canonical": "#ff5bd6",
+        "tonalRamp": ["#3b072f", "#671054", "#95177b", "#c922a7", "#ed40c4", "#ff5bd6", "#ff9ae5", "#ffd7f6"]
       },
       "worksheet-paper": {
         "role": "neutral",
         "displayName": "Worksheet Paper",
-        "canonical": "#f4f7e9",
-        "tonalRamp": ["#26281f", "#44473a", "#646859", "#858978", "#a7ac98", "#c9ceba", "#e3e7d5", "#f4f7e9"]
+        "canonical": "#fbf6ff",
+        "tonalRamp": ["#2a2530", "#46404d", "#645d6c", "#857d8d", "#a8a1b0", "#cdc6d6", "#e8e1ee", "#fbf6ff"]
       }
     },
     "typographyMeta": {
@@ -40,7 +40,7 @@
     "shadows": [
       {
         "name": "temporary-lift",
-        "value": "8px 10px 26px rgba(19, 34, 24, 0.12)",
+        "value": "8px 10px 26px rgba(22, 5, 38, 0.16)",
         "purpose": "Temporary notices and active drag state only."
       }
     ],
@@ -63,14 +63,14 @@
       "refersTo": "button-primary",
       "description": "Primary file and analysis action.",
       "html": "<button class=\"ds-button-primary\">CHOOSE CSV</button>",
-      "css": ".ds-button-primary { min-height:44px; border:1px solid #132218; border-radius:0; padding:11px 17px; background:#c8f135; color:#132218; box-shadow:4px 4px 0 #132218; font:900 .8rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; letter-spacing:.045em; text-transform:uppercase; transition:transform .2s ease-out,box-shadow .2s ease-out; } .ds-button-primary:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #132218; } .ds-button-primary:focus-visible { outline:3px solid #132218; outline-offset:3px; }"
+      "css": ".ds-button-primary { min-height:44px; border:1px solid #160526; border-radius:0; padding:11px 17px; background:#ff5bd6; color:#160526; box-shadow:4px 4px 0 #160526; font:900 .8rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; letter-spacing:.045em; text-transform:uppercase; transition:transform .2s ease-out,box-shadow .2s ease-out; } .ds-button-primary:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #160526; } .ds-button-primary:focus-visible { outline:3px solid #160526; outline-offset:3px; }"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "description": "Export and supporting action.",
       "html": "<button class=\"ds-button-secondary\">EXPORT SUMMARY</button>",
-      "css": ".ds-button-secondary { min-height:44px; border:1px solid #132218; border-radius:0; padding:11px 17px; background:transparent; color:#132218; font:900 .8rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; letter-spacing:.045em; text-transform:uppercase; } .ds-button-secondary:hover { background:#132218; color:#f4f7e9; } .ds-button-secondary:focus-visible { outline:3px solid #132218; outline-offset:3px; }"
+      "css": ".ds-button-secondary { min-height:44px; border:1px solid #160526; border-radius:0; padding:11px 17px; background:transparent; color:#160526; font:900 .8rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; letter-spacing:.045em; text-transform:uppercase; } .ds-button-secondary:hover { background:#160526; color:#fbf6ff; } .ds-button-secondary:focus-visible { outline:3px solid #160526; outline-offset:3px; }"
     },
     {
       "name": "Time Input",
@@ -78,37 +78,37 @@
       "refersTo": "input",
       "description": "Squared local-time query control.",
       "html": "<input class=\"ds-input\" type=\"time\" value=\"08:00\">",
-      "css": ".ds-input { width:150px; height:42px; border:1px solid #132218; border-radius:0; padding:7px 8px; background:#fbfcf7; color:#132218; font:800 .8rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; } .ds-input:focus-visible { outline:3px solid #132218; outline-offset:3px; }"
+      "css": ".ds-input { width:150px; height:42px; border:1px solid #160526; border-radius:0; padding:7px 8px; background:#fffaff; color:#160526; font:800 .8rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; } .ds-input:focus-visible { outline:3px solid #160526; outline-offset:3px; }"
     },
     {
       "name": "Active Preset",
       "kind": "chip",
       "description": "Selected time or date preset.",
       "html": "<button class=\"ds-chip\">EVENING</button>",
-      "css": ".ds-chip { border:1px solid #132218; border-radius:0; padding:6px 8px; background:#c8f135; color:#132218; font:700 .72rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; } .ds-chip:hover { filter:brightness(.96); } .ds-chip:focus-visible { outline:3px solid #132218; outline-offset:2px; }"
+      "css": ".ds-chip { border:1px solid #160526; border-radius:0; padding:6px 8px; background:#ff5bd6; color:#160526; font:700 .72rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; } .ds-chip:hover { filter:brightness(.96); } .ds-chip:focus-visible { outline:3px solid #160526; outline-offset:2px; }"
     },
     {
       "name": "Privacy Stamp",
       "kind": "custom",
       "description": "Persistent local-only data status.",
       "html": "<div class=\"ds-privacy\"><span>●</span> LOCAL ONLY</div>",
-      "css": ".ds-privacy { display:inline-flex; gap:7px; border:1px solid #132218; padding:8px 11px; background:#fbfcf7; color:#132218; font:800 .76rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; letter-spacing:.08em; } .ds-privacy span { color:#7ba20b; }"
+      "css": ".ds-privacy { display:inline-flex; gap:7px; border:1px solid #160526; padding:8px 11px; background:#fffaff; color:#160526; font:800 .76rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; letter-spacing:.08em; } .ds-privacy span { color:#8f39ff; }"
     }
   ],
   "narrative": {
-    "northStar": "The Household Load Worksheet",
-    "overview": "Loadprint treats energy data like a marked-up utility timetable: compressed, precise, tactile, and immediately useful. Dense evidence sits on pale worksheet surfaces while deep utility ink establishes hierarchy. Signal lime marks queried periods and active decisions rather than decorating neutral space.",
+    "northStar": "The Playful Power Worksheet",
+    "overview": "WattAmIUsing treats energy data like a marked-up utility timetable with a midnight palette: lively, tactile, and immediately useful. Dense evidence sits on bright lavender worksheet surfaces while deep utility ink establishes hierarchy. Electric pink marks queried periods and active decisions, with aqua carrying supporting data so the interface feels energetic without losing clarity.",
     "keyCharacteristics": [
       "Squared utility controls and hard rules",
       "Condensed, uppercase display hierarchy",
-      "Signal lime reserved for active windows and primary action",
+      "Electric pink reserved for active windows and primary action",
       "Dense charts balanced by plain, readable working surfaces",
       "Flat composition with structural depth only"
     ],
     "rules": [
       {
         "name": "The Signal Means Selection Rule",
-        "body": "Lime indicates an active time window, selected state, or primary action; it does not decorate passive containers.",
+        "body": "Pink indicates an active time window, selected state, or primary action; it does not decorate passive containers.",
         "section": "colors"
       },
       {
