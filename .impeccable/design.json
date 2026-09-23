@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T09:18:05.871+01:00",
+  "title": "Design System: Loadprint",
+  "extensions": {
+    "colorMeta": {
+      "utility-ink": {
+        "role": "neutral",
+        "displayName": "Utility Ink",
+        "canonical": "#132218",
+        "tonalRamp": ["#132218", "#26372b", "#405244", "#5f7263", "#849688", "#abb9ad", "#d2dbd3", "#f4f7f4"]
+      },
+      "signal-lime": {
+        "role": "primary",
+        "displayName": "Signal Lime",
+        "canonical": "#c8f135",
+        "tonalRamp": ["#273402", "#455a04", "#668207", "#89ab0e", "#aad41e", "#c8f135", "#dcf67b", "#f0fbc2"]
+      },
+      "worksheet-paper": {
+        "role": "neutral",
+        "displayName": "Worksheet Paper",
+        "canonical": "#f4f7e9",
+        "tonalRamp": ["#26281f", "#44473a", "#646859", "#858978", "#a7ac98", "#c9ceba", "#e3e7d5", "#f4f7e9"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Compressed Display",
+        "purpose": "Single high-impact surface statement."
+      },
+      "body": {
+        "displayName": "Working Copy",
+        "purpose": "Explanations and analysis context."
+      },
+      "label": {
+        "displayName": "Measurement Label",
+        "purpose": "Controls, units, axes, and status."
+      }
+    },
+    "shadows": [
+      {
+        "name": "temporary-lift",
+        "value": "8px 10px 26px rgba(19, 34, 24, 0.12)",
+        "purpose": "Temporary notices and active drag state only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-response",
+        "value": "200ms ease-out",
+        "purpose": "Direct hover and drag feedback."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "680px" },
+      { "name": "compact", "value": "980px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary file and analysis action.",
+      "html": "<button class=\"ds-button-primary\">CHOOSE CSV</button>",
+      "css": ".ds-button-primary { min-height:44px; border:1px solid #132218; border-radius:0; padding:11px 17px; background:#c8f135; color:#132218; box-shadow:4px 4px 0 #132218; font:900 .8rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; letter-spacing:.045em; text-transform:uppercase; transition:transform .2s ease-out,box-shadow .2s ease-out; } .ds-button-primary:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #132218; } .ds-button-primary:focus-visible { outline:3px solid #132218; outline-offset:3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "description": "Export and supporting action.",
+      "html": "<button class=\"ds-button-secondary\">EXPORT SUMMARY</button>",
+      "css": ".ds-button-secondary { min-height:44px; border:1px solid #132218; border-radius:0; padding:11px 17px; background:transparent; color:#132218; font:900 .8rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; letter-spacing:.045em; text-transform:uppercase; } .ds-button-secondary:hover { background:#132218; color:#f4f7e9; } .ds-button-secondary:focus-visible { outline:3px solid #132218; outline-offset:3px; }"
+    },
+    {
+      "name": "Time Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Squared local-time query control.",
+      "html": "<input class=\"ds-input\" type=\"time\" value=\"08:00\">",
+      "css": ".ds-input { width:150px; height:42px; border:1px solid #132218; border-radius:0; padding:7px 8px; background:#fbfcf7; color:#132218; font:800 .8rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; } .ds-input:focus-visible { outline:3px solid #132218; outline-offset:3px; }"
+    },
+    {
+      "name": "Active Preset",
+      "kind": "chip",
+      "description": "Selected time or date preset.",
+      "html": "<button class=\"ds-chip\">EVENING</button>",
+      "css": ".ds-chip { border:1px solid #132218; border-radius:0; padding:6px 8px; background:#c8f135; color:#132218; font:700 .72rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; } .ds-chip:hover { filter:brightness(.96); } .ds-chip:focus-visible { outline:3px solid #132218; outline-offset:2px; }"
+    },
+    {
+      "name": "Privacy Stamp",
+      "kind": "custom",
+      "description": "Persistent local-only data status.",
+      "html": "<div class=\"ds-privacy\"><span>●</span> LOCAL ONLY</div>",
+      "css": ".ds-privacy { display:inline-flex; gap:7px; border:1px solid #132218; padding:8px 11px; background:#fbfcf7; color:#132218; font:800 .76rem 'Aptos Narrow','Bahnschrift Condensed',sans-serif; letter-spacing:.08em; } .ds-privacy span { color:#7ba20b; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Household Load Worksheet",
+    "overview": "Loadprint treats energy data like a marked-up utility timetable: compressed, precise, tactile, and immediately useful. Dense evidence sits on pale worksheet surfaces while deep utility ink establishes hierarchy. Signal lime marks queried periods and active decisions rather than decorating neutral space.",
+    "keyCharacteristics": [
+      "Squared utility controls and hard rules",
+      "Condensed, uppercase display hierarchy",
+      "Signal lime reserved for active windows and primary action",
+      "Dense charts balanced by plain, readable working surfaces",
+      "Flat composition with structural depth only"
+    ],
+    "rules": [
+      {
+        "name": "The Signal Means Selection Rule",
+        "body": "Lime indicates an active time window, selected state, or primary action; it does not decorate passive containers.",
+        "section": "colors"
+      },
+      {
+        "name": "The Compression Rule",
+        "body": "Large type may be narrow and tightly set; body copy keeps normal tracking and generous line height.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Worksheet Rule",
+        "body": "Permanent analysis surfaces do not float.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do join related evidence into ruled regions instead of separate floating cards.",
+      "Do keep lime meaningful by tying it to selection or action.",
+      "Do label charts with units, time context, and non-colour cues.",
+      "Do preserve usable density on desktop and deliberate stacking on mobile."
+    ],
+    "donts": [
+      "Don't add rounded dashboard tiles or soft ambient shadows.",
+      "Don't use lime as an arbitrary highlight on passive copy.",
+      "Don't hide the query controls behind a modal.",
+      "Don't replace the load profile or heatmap with decorative summary graphics."
+    ]
+  }
+}

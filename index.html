@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Loadprint — household electricity patterns</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--
+    THESIS: Electricity use becomes a household timetable, not a bill summary; refuses generic metric-card dashboards.
+    OWN-WORLD: Ink-on-celery utility worksheet, squared controls, lime time bands, ruled charts, and precise measurement type.
+    STORY: Import locally, isolate a routine, compare its recurrence, then leave with one concrete period to investigate.
+    FIRST VIEWPORT: Import rail and 24-hour query strip frame an immediate usage profile; controls remain visible beside evidence.
+    FORM: Loadprint direction, fifth grounded form, timetable staging, seed fac8b61a.
+  -->
+  <header class="masthead">
+    <a class="brand" href="#" aria-label="Loadprint home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>LOADPRINT</span>
+    </a>
+    <p>Your electricity, mapped to the routines that create it.</p>
+    <div class="privacy-stamp"><span aria-hidden="true">●</span> Local only</div>
+  </header>
+
+  <main>
+    <section class="intake" id="intake">
+      <div class="intake-copy">
+        <h1>Find the hours<br>that keep repeating.</h1>
+        <p>Drop in your supplier CSV. Loadprint turns interval readings into a daily load profile, recurring time bands, and comparable weekly or monthly totals.</p>
+      </div>
+      <div class="drop-zone" id="drop-zone">
+        <input id="file-input" type="file" accept=".csv,text/csv">
+        <div>
+          <strong>Drop CSV here</strong>
+          <span>or choose a file from this device</span>
+        </div>
+        <button class="button primary" id="choose-file" type="button">Choose CSV</button>
+        <button class="text-button" id="load-demo" type="button">Explore with synthetic data</button>
+      </div>
+      <div class="file-state" id="file-state" hidden aria-live="polite"></div>
+    </section>
+
+    <section class="workspace" id="workspace" hidden>
+      <aside class="query-panel">
+        <div class="query-heading">
+          <h2>Interrogate a routine</h2>
+          <button class="text-button" id="replace-file" type="button">Replace CSV</button>
+        </div>
+
+        <fieldset>
+          <legend>Time window</legend>
+          <div class="time-pair">
+            <label>From<input id="time-start" type="time" value="08:00" step="900"></label>
+            <span aria-hidden="true">→</span>
+            <label>To<input id="time-end" type="time" value="11:00" step="900"></label>
+          </div>
+          <div class="presets" aria-label="Time window presets">
+            <button type="button" data-time="06:00,09:00">Morning</button>
+            <button type="button" data-time="09:00,17:00">Daytime</button>
+            <button type="button" data-time="16:00,21:00">Evening</button>
+            <button type="button" data-time="22:00,06:00">Overnight</button>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Date range</legend>
+          <div class="date-pair">
+            <label>Start<input id="date-start" type="date"></label>
+            <label>End<input id="date-end" type="date"></label>
+          </div>
+          <div class="presets" aria-label="Date range presets">
+            <button type="button" data-range="30">Last 30 days</button>
+            <button type="button" data-range="90">Last 90 days</button>
+            <button type="button" data-range="all">All data</button>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Group results</legend>
+          <div class="segmented">
+            <label><input type="radio" name="group" value="day" checked><span>Daily</span></label>
+            <label><input type="radio" name="group" value="week"><span>Weekly</span></label>
+            <label><input type="radio" name="group" value="month"><span>Monthly</span></label>
+          </div>
+        </fieldset>
+
+        <div class="data-note">
+          <span id="row-count">0 readings</span>
+          <span id="date-coverage">No dates loaded</span>
+        </div>
+      </aside>
+
+      <div class="analysis">
+        <section class="profile" aria-labelledby="profile-title">
+          <div class="section-heading">
+            <div>
+              <h2 id="profile-title">Your 24-hour loadprint</h2>
+              <p>Average consumption by hour across selected dates. Chosen window is highlighted.</p>
+            </div>
+            <div class="profile-key"><span></span><b id="window-label">08:00–11:00</b></div>
+          </div>
+          <div id="profile-chart" class="chart chart-profile" role="img" aria-label="Average hourly electricity use"></div>
+        </section>
+
+        <section class="summary-strip" aria-label="Selected window summary">
+          <div>
+            <span>Average per active day</span>
+            <strong id="avg-day">0 kWh</strong>
+            <small id="avg-day-cost">No matching readings</small>
+          </div>
+          <div>
+            <span>Total in window</span>
+            <strong id="window-total">0 kWh</strong>
+            <small id="window-cost">No matching readings</small>
+          </div>
+          <div>
+            <span>Share of selected usage</span>
+            <strong id="usage-share">0%</strong>
+            <small>How much falls inside this routine</small>
+          </div>
+          <div>
+            <span>Most intensive weekday</span>
+            <strong id="top-weekday">No data</strong>
+            <small id="weekday-delta">No matching readings</small>
+          </div>
+        </section>
+
+        <section class="trend-section" aria-labelledby="trend-title">
+          <div class="section-heading">
+            <div>
+              <h2 id="trend-title">How this window changes</h2>
+              <p id="trend-subtitle">Daily consumption attributed to the selected time window.</p>
+            </div>
+            <button class="button secondary" id="download-summary" type="button">Export summary</button>
+          </div>
+          <div id="trend-chart" class="chart chart-trend" role="img" aria-label="Electricity usage trend"></div>
+        </section>
+
+        <div class="lower-grid">
+          <section class="heatmap-section" aria-labelledby="heatmap-title">
+            <div class="section-heading">
+              <div>
+                <h2 id="heatmap-title">Recurring weekly rhythm</h2>
+                <p>Average kWh by weekday and hour. Darker cells mean heavier use.</p>
+              </div>
+            </div>
+            <div id="heatmap" class="heatmap" role="img" aria-label="Weekly electricity consumption heatmap"></div>
+            <div class="heatmap-scale"><span>Lower</span><i></i><i></i><i></i><i></i><i></i><span>Higher</span></div>
+          </section>
+
+          <section class="findings" aria-labelledby="findings-title">
+            <h2 id="findings-title">Periods worth investigating</h2>
+            <div id="findings-list"></div>
+          </section>
+        </div>
+
+        <p class="standing-note" id="standing-note"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>LOADPRINT / PRIVATE ENERGY ANALYSIS</span>
+    <span>Nothing leaves your browser.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
