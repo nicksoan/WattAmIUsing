@@ -334,6 +334,25 @@ input[type="time"], input[type="date"] {
 .segmented label + label span { border-left: 1px solid var(--ink); }
 .segmented input:checked + span { background: var(--ink); color: var(--paper); }
 
+.toggle-option {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.toggle-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.toggle-option span {
+  color: var(--ink);
+  font-size: .84rem;
+  letter-spacing: .02em;
+}
+
 .data-note {
   display: grid;
   gap: 7px;

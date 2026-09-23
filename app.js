@@ -301,7 +301,7 @@ function aggregateTrend(selected, group) {
   return [...groups.values()].sort((a, b) => a.key.localeCompare(b.key));
 }
 
-function renderTrend(data, group) {
+function renderTrend(data, group, showAllLabels = false) {
   const container = $("#trend-chart");
   if (!data.length) {
     container.innerHTML = '<p class="empty-chart">No readings overlap this time window and date range.</p>';
@@ -323,7 +323,7 @@ function renderTrend(data, group) {
   const line = `M ${points.map((point) => `${point.x} ${point.y}`).join(" L ")}`;
   svg.append(svgEl("path", { d: area, class: "trend-area" }));
   svg.append(svgEl("path", { d: line, class: "trend-line" }));
-  const labelEvery = Math.max(1, Math.ceil(data.length / 8));
+  const labelEvery = showAllLabels ? 1 : Math.max(1, Math.ceil(data.length / 8));
   points.forEach((point, index) => {
     const circle = svgEl("circle", { cx: point.x, cy: point.y, r: 4.5, class: "trend-point" });
     circle.append(svgEl("title", {}, `${groupLabel(point.item.key, group)} — ${formatKwh(point.item.consumption)}, ${formatCost(point.item.cost)}`));
@@ -454,7 +454,7 @@ function render() {
 
   $("#trend-subtitle").textContent = `${group[0].toUpperCase() + group.slice(1)} consumption attributed to ${timeLabel}.`;
   renderProfile(inDateRange, timeStart, timeEnd);
-  renderTrend(aggregateTrend(selected, group), group);
+  renderTrend(aggregateTrend(selected, group), group, $("#show-all-trend-labels").checked);
   renderHeatmap(inDateRange);
   renderFindings(selection);
 
@@ -590,6 +590,7 @@ $$("[data-range]").forEach((button) => button.addEventListener("click", () => {
 ["#time-start", "#time-end", "#date-start", "#date-end"].forEach((selector) => {
   $(selector).addEventListener("change", render);
 });
+$("#show-all-trend-labels").addEventListener("change", render);
 $$('input[name="group"]').forEach((input) => input.addEventListener("change", render));
 window.addEventListener("resize", () => {
   clearTimeout(window.resizeTimer);
