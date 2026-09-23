@@ -1,4 +1,4 @@
-# Loadprint
+# WattAmIUsing
 
 Private, browser-only electricity usage dashboard for supplier CSV exports.
 

@@ -540,7 +540,7 @@ function exportSummary() {
   const csv = lines.map((row) => row.join(",")).join("\r\n");
   const link = document.createElement("a");
   link.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
-  link.download = `loadprint-${group}-summary.csv`;
+  link.download = `wattamiusing-${group}-summary.csv`;
   link.click();
   URL.revokeObjectURL(link.href);
 }
